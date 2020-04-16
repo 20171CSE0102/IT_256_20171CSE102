@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title>LOGIN PAGE</title>
+		<style>
+			button
+			{
+				background-color:#4CAF50;
+				border:none;
+			}
+			.done
+			{
+				background-color:lightgrey;
+  				width:1000px;
+  				border:15px solid black;
+  				padding:10px;
+  				margin:20px;	
+			}
+			img
+			{
+				width:5%;
+  				border-radius:100%;
+			}
+			label
+			{
+				text-align:left;
+			}
+			body
+			{
+				background-color:#E8E8E8;
+				text-align:center;
+			}
+		</style>
+		<script>
+			function validate()
+			{
+				var em=document.getElementById("Email").value;
+				var name=document.getElementById("Username").value;
+				var pswrd=document.getElementById("Password").value;
+				var at=em.indexOf("@");
+        		var dot=em.lastIndexOf(".");
+                var re=/^(?=.*[\d])(?=.*[!@#$%^&*])[A-za-z\d][\w!@#$%^&*]{8,15}$/;
+				if(em=="")
+				{
+					alert("Please enter Email ID");
+					Username.focus();
+					return false;
+				}
+				else
+				{
+					if(at<1 || dot<at+2 || dot+2>=em.length)
+					{
+						alert("Invalid Email ID");
+						Email.focus();
+						return false;
+					}
+				}
+				if(name=="")
+				{
+					alert("Please enter username");
+					Username.focus();
+					return false;
+				}
+                for(i=0;i<name.length;i++)
+                {
+                    if (!((name.charAt(i)>='a' && name.charAt(i)<='z')||(name.charAt(i)>='A' && name.charAt(i)<='Z')))
+                    {
+                        alert("Enter only alphabets in username");
+                        document.getElementById("Username").value="";
+                        Username.focus();
+                        return false;
+                    }
+                }
+                if(!(name.length>=3 && name.length<=10))
+                {
+                    alert("Enter name between 3 to 10 letters");
+                    document.getElementById("Username").value="";
+                    Username.focus();
+                    return false;
+                }
+				if(pswrd=="")
+				{
+					alert("Please enter username");
+					Password.focus();
+					return false;
+				}
+                if(!(re.test(pswrd)))
+                {
+                    alert("Enter atleast one capital letter, one small letter, one special character, one number and minimum 8 and maximum 10 characters");
+                    Password.focus();
+                    return false;
+                }
+                alert("LOGIN SUCCESSFULL");
+                return true;
+			}
+		</script>
+	</head>
+	<body >
+		<h1>Welcome To Login Page</h1>
+		<center>
+            <div class="done">
+                <p>
+                        <img src="download.jpg" alt="try again">
+                </p>
+                <form>
+                    <label><b>Email</b></label><br>
+                    <input type="email" placeholder="Enter Email ID" id="Email" required/><br><br>
+                    <label><b>Username</b></label><br>
+                    <input type="text" placeholder="Enter Username" id="Username" required/><br><br>
+                    <label><b>Password</b></label><br>
+                    <input type="password" placeholder="Enter Password" id="Password" required/><br><br>
+                    <button type="submit" id="submit" onclick="validate()"><b>LOGIN</b></button>
+                </form>
+            </div>
+		</center>
+	</body>
+</html>
