@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Palindrome Number</title>
+        <script>
+            function palindrome_num()
+            {
+                var num=document.getElementById("Number").value;
+                var rem,temp,f=0;
+                temp=num;
+                while(num>0)
+                {
+                    rem=num%10;
+                    f=f*10+rem;
+                    num=parseInt(num/10);
+                }
+                if(f==temp)
+                {
+                    window.alert(temp+" is a palindrome number");
+                }
+                else
+                {
+                    window.alert(temp+" is not a palindrome number");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <label>Enter a number:</label>
+        <input type="number" id="Number"/>
+        <button onclick="palindrome_num()">SUBMIT</button>
+    </body>
+</html>
