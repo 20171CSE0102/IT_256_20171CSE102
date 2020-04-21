@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>VALIDATION FORM</title>
+        <script>
+            function practice()
+            {
+                var n=document.getElementById("name").value;
+                var a=document.getElementById("age").value;
+                if(n=="")
+                {
+                    alert("Please fill name field");
+                    name.focus();
+                    return false;
+                }
+                if(!(n.length>5))
+                {
+                    alert("Name should have more than 5 characters");
+                    document.getElementById("name").value="";
+                    name.focus();
+                    return false;
+                }
+                for(i=0;i<n.length;i++)
+                {
+                    if(!((n.charAt(i)>='a' && n.charAt(i)<='z')||(n.charAt(i)>='A' && n.charAt(i)<='Z')))
+                    {
+                        alert("Enter only alphabets in name field");
+                        document.getElementById("name").value="";
+                        name.focus();
+                        return false;
+                    }
+                }
+                if(a=="")
+                {
+                    alert("Please fill age field");
+                    age.focus();
+                    return false;
+                }
+                if(a<15 || a>120)
+                {
+                    alert("Enter age between 15 to 120");
+                    age.focus();
+                    return false;
+                }
+                else
+                {
+                    for(i=0;i<a.length;i++)
+                    {
+                        if(!(a.charAt(i)>='0' && a.charAt(i)<='9'))
+                        {
+                            alert("Enter only numbers in age field");
+                            age.focus();
+                            return false;
+                        }
+                    }
+                }
+                alert("Form submitted successfully");
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <h1 align="center">Practice Validation Form</h1>
+        <form align="center">
+            <b>NAME</b><br/>
+            <input type="text" id="name"/><br/><br/>
+            <b>AGE</b><br/>
+            <input type="text" id="age"/><br/><br/>
+            <b>GENDER</b><br/>
+            <input type="radio" name="gender" id="Female" checked/>Female
+            <input type="radio" name="gender" id="Male"/>Male<br/><br/>
+            <input type="submit" value="submit" onclick="practice();"/>
+        </form>
+    </body>
+</html>

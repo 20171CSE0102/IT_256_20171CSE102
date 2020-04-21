@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>input type image</title>
+        <script>
+            function refresh()
+                {
+                    location.reload();
+                }
+                document.write("Today's date is "+Date()+"<br/><br/>");
+        </script>
+    </head>
+    <body>
+        <form action="loginPage.html" method="get" target="_blanck">
+            <input type="image" name="img_btn" src="download (2).jpg" alt="Try Again" onclick="refresh()"/><br/><br/>
+            <input type="password" name="pswrd" placeholder="Enter the password" required/><br/><br/>
+            <input type="color" name="col"/><br/><br/>
+            <input type="reset" name="r"/><br/><br/>
+            <input type="submit" name="sub" value="submit"/><br/><br/>
+            <input type="date" /><br/><br/>
+            <input type="email" placeholder="Enter your email"/><br/><br/>
+            <input type="file"/><br/><br/>
+            <input type="time"/><br/><br/>
+            <input type="url" placeholder="Enter url"/><br/><br/>
+            <input type="number"/><br/><br/>
+            <input type="range" min="0" max="100"/><br/><br/>
+            <input type="text" name="first_name" value="ayeshaszu"/><br/><br/>
+            <input type="text" name="first_name" value="ayeshaszu" readonly/><br/><br/>
+            <input type="text" name="first_name" value="ayeshaszu" disabled/><br/><br/>
+            <input type="text" name="first_name" size="4" placeholder="Enter text"/><br/><br/>
+            <input type="text" name="first_name" maxlength="4" placeholder="Enter text"/><br/><br/>
+            <input type="text" name="first_name" size="40" placeholder="Enter text" autofocus/><br/><br/>
+            <input type="text" name="country_code" pattern="[A-Za-z]{3}" placeholder="Enter details acc to pattern"/><br/><br/>
+        </form>
+    </body>
+</html>

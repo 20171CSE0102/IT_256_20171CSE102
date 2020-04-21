@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form onsubmit="myFunction()">
+        <input type="checkbox" class="example" value="c" />C Programming<br />
+        <input type="checkbox" class="example" value="c++" />C++<br />
+        <input type="checkbox" class="example" value="python" />Python<br />
+        <input type="checkbox" class="example" value="java" />Java<br />
+        <input type="checkbox" class="example" value="cn" />Computer Networks<br />
+        <input type="checkbox" class="example" value="dbms" />Database Management Systems<br />
+        <input type="checkbox" class="example" value="It" />Internet Technologies<br />
+        <input type="checkbox" class="example" value="dd" />Digital Design<br />
+        <button type="submit">Click karo Bhai !</button>
+    </form>
+
+
+    <script>
+        function myFunction() {
+            //Here , we intialize ischecked flag as false which means none of the checkboxes are selected
+            var ischecked = false;
+            var x = document.querySelectorAll(".example");
+            //now x is an object which contains all the DOM nodes with the class name example and example has all the properties of each DOM element
+            // for eg: if the x has 2 elements and first element type is text than x[0].placeholder can be accessed and if second element type is checkbox the x[1].checked property can be accessed
+            console.log(x)
+            for (var i = 0; i < x.length; i++) 
+            {
+                //here as we already know all elements inside object x all elements has type as checkbox we simply iterate over every element and check the checked() property
+                if (x[i].checked) {
+                    ischecked = true
+                }
+            }
+            if (!ischecked) 
+            {
+                alert("Please select any one Technical Skills");
+                event.preventDefault();
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
