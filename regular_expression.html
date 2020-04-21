@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Regular Expression</title>
+        <script>
+            function v()
+            {
+                var vaa=document.getElementById("va").value;
+                var regularExpression=/[a-z]/;
+                if(!regularExpression.test(vaa))
+                {
+                    alert("Enter grades between a-z");
+                    document.getElementById("va").value="";
+                    va.focus();
+                    return false;
+                }
+                var regularExpression1=/[A-Z]/;
+                var vaa1=document.getElementById("va1").value;
+                if(!regularExpression1.test(vaa1))
+                {
+                    alert("Enter grades between A-Z");
+                    document.getElementById("va1").value="";
+                    va1.focus();
+                    return false;
+                }
+                var regularExpression2=/[0-9]/;
+                var vaa2=document.getElementById("va2").value;
+                if(!regularExpression2.test(vaa2))
+                {
+                    alert("Enter grades between 0-9");
+                    document.getElementById("va2").value="";
+                    va2.focus();
+                    return false;
+                }
+                var regularExpression3=/[a-c]/;
+                var vaa3=document.getElementById("va3").value;
+                if(!regularExpression2.test(vaa3))
+                {
+                    alert("Enter grades between 0-9");
+                    document.getElementById("va3").value="";
+                    va3.focus();
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="v()">
+            a-z
+            <input type="text" id="va" required/><br/><br/>
+            A-Z
+            <input type="text" id="va1" required/><br/><br/>
+            0-9
+            <input type="text" id="va2" required/><br/><br/>
+            a-c
+            <input type="text" id="va2" required/><br/><br/>
+            <button type="submit" value="submit">SUBMIT</button>
+        </form>
+    </body>
+</html>
