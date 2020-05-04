@@ -1,0 +1,323 @@
+<html>
+    <head>
+        <title>JavaScript Assignment</title>
+        <style>
+            .field
+            {
+                background-color:antiquewhite;
+            }
+            .fi
+            {
+                background-color:DAC4C4;
+            }
+            .reg_btn
+            {
+                background-color:7FDE93;
+                border:1px solid black;
+            }
+            .tab_head
+            {
+                background-color:BBC0BC;
+            }
+            .reset_btn
+            {
+                background-color:B1DAD3;
+                border:1px solid black;
+            }
+            .small
+            {
+                font-size: 15px;
+                color:grey;
+            }
+            .sub_head
+            {
+                background-color:D4DAD9;
+            }
+        </style>
+        <script>
+            function conditions()
+            {
+                var gender=document.getElementsByName("gender");
+                if ((gender[0].checked==false)&&(gender[1].checked==false)) 
+                {
+                    alert ("Please choose your Gender:  Female or Male");
+                    event.preventDefault(); 
+                    return false;
+                }
+                var phone_num=document.getElementById("phone").value;
+                if(phone_num.length>10)
+                {
+                    alert("Invalid phone number Enter 10 digit phone number");
+                    document.getElementById("phone").value="";
+                    event.preventDefault();
+                    phone.focus()
+                    return false;
+                }
+                else
+                {
+                    for(i=0;i<phone_num.length;i++)
+                    {
+                        if(!(phone_num.charAt(i)>='0' && phone_num.charAt(i)<='9'))
+                        {
+                            alert("Enter only numbers in phone number field");
+                            document.getElementById("phone").value="";
+                            event.preventDefault();
+                            phone.focus();
+                            return false;
+                        }
+                    }
+                }
+                var linebreak="<br/>";
+                var regex=/^[0-9][.]?[0-9]$|^[0-9]$/;
+                var dom_object=document.querySelectorAll(".percentage");
+                for(var i=0;i<dom_object.length;i++) 
+                {
+                    var elementvalue=dom_object[i].value
+                    if (!regex.test(elementvalue)) 
+                    {
+                        event.preventDefault();
+                        alert("Enter percentage or cgpa in correct format.\n For Percentage enter 2 digits, eg:99\n For CGPA enter single digit, eg:7 or number with single decimal, eg:7.1");
+                        dom_object[i].value = ""
+                        dom_object[i].focus();
+                        return false
+                    }
+                }
+                var grade1=document.getElementById("grade_sslc").value;
+                var grade2=document.getElementById("grade_puc").value;
+                var regular_exp=/^[A-C]$/;
+                if(!regular_exp.test(grade1))
+                {
+                    alert("Enter grades between A-C in grades field");
+                    document.getElementById("grade_sslc").value="";
+                    event.preventDefault();
+                    grade_sslc.focus();
+                    return false;
+                }
+                else if(!regular_exp.test(grade2)){
+                    alert("Enter grades between A-C in grades field");
+                    document.getElementById("grade_puc").value="";
+                    event.preventDefault();
+                    grade_puc.focus();
+                    return false;
+                }
+                var branches=document.getElementById("specialization").value;
+                if(branches=="select")
+                {
+                    alert("Please select your branch under specialisation");
+                    event.preventDefault();
+                    return false;
+                }
+                var yop=document.getElementById("YOP").value;
+                if((yop<'2020-01-01') || (yop>'2022-12-s31'))
+                {
+                    alert("NOT ELIGIBLE TO REGISTER!");
+                    event.preventDefault();
+                    return false;
+                }
+                var ischecked = false;
+                var x = document.querySelectorAll(".example");
+                console.log(x)
+                for (var i = 0; i < x.length; i++) 
+                {
+                    if (x[i].checked) 
+                    {
+                        ischecked = true;
+                    }
+                }
+                if (!ischecked) 
+                {
+                    alert("Please select any one Technical Skills");
+                    event.preventDefault();
+                    return false;
+                }
+                alert("REGISTRATION SUCCESSFUL!");
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="conditions()">
+            <fieldset class="fi">
+                <h1 align="center">Registration Form for job fair in Presidency University</h1>
+                <p align="right">
+                    <input class="reset_btn" type="reset" value="RESET">
+                </p>
+                <fieldset class="field">
+                    <legend><b>PERSONAL DETAILS</b></legend><br/>
+                    <table border="0">
+                        <tr>
+                            <td height="30" align="right">Full Name :&nbsp;</td>
+                            <td height="30"><input type="text" id="fname" placeholder="Firstname" size="25" required/></td>
+                            <td height="30"><input type="text" id="lname" placeholder="Lastname" size="25" required/></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="right">Mail-ID :&nbsp;</td>
+                            <td height="30"><input type="email" placeholder="example@gmail.com" size="25" id="mail" required/></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="right">Age :&nbsp;</td>
+                            <td height="30"><input type="text" id="Age" size="25" required/></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="right">Gender :&nbsp;</td>
+                            <td height="30"><input type="radio" name="gender" value="male"> Male<br/>
+                                <input type="radio" name="gender" value="female"> Female<br/></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="right">Phone Number :&nbsp;</td>
+                            <td height="30"><input type="text" id="phone" placeholder="99999-99999" size="25" required/></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="right" valign="top">Address :&nbsp;</td>
+                            <td height="30"><textarea rows="4" cols="20" required></textarea></td>
+                        </tr>
+                    </table><br/>
+                </fieldset><br/>
+                <fieldset class="field">
+                    <legend><b>UPLOAD SECTION</b></legend><br/>
+                    <table border="0">
+                        <tr>
+                            <td height="30" align="right">Photo Upload Field :&nbsp;</td>
+                            <td height="30"><input type="file" required/></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="right">Signature Upload Field :&nbsp;</td>
+                            <td height="30"><input type="file" required/></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="right">Resume Upload Field :&nbsp;</td>
+                            <td height="30"><input type="file" required/></td>
+                        </tr>
+                    </table><br/>
+                </fieldset><br/>
+                <fieldset class="field">
+                    <legend><b>MARKS SECTION</b></legend><br/>
+                    <table border="2">
+                        <tr>
+                            <th class="tab_head" colspan="3" height="30" align="center">SSLC</th>
+                        </tr>
+                        <tr>
+                            <th class="sub_head" height="30" align="center">TOTAL MARKS</th>
+                            <th class="sub_head" height="30" align="center">PERCENTAGE/CGPA</th>
+                            <th class="sub_head" height="30" align="center">GRADE</th>
+                        </tr>
+                        <tr>
+                            <td height="30"><input type="text" id="mar" required /></td>
+                            <td height="30"><input type="text" id="per_cgpa_sslc" class="percentage" required /></td>
+                            <td height="30"><input type="text" id="grade_sslc" required /></td>
+                        </tr>
+                    </table><br />
+                    <table border="2">
+                        <tr>
+                            <th class="tab_head" colspan="3" height="30" align="center">PUC</th>
+                        </tr>
+                        <tr>
+                            <th class="sub_head" height="30" align="center">TOTAL MARKS</th>
+                            <th class="sub_head" height="30" align="center">PERCENTAGE/CGPA</th>
+                            <th class="sub_head" height="30" align="center">GRADE</th>
+                        </tr>
+                        <tr>
+                            <td height="30"><input type="text" id="mar" required /></td>
+                            <td height="30"><input type="text" id="per_cgpa_puc" class="percentage" required /></td>
+                            <td height="30"><input type="text" id="grade_puc" required /></td>
+                        </tr>
+                    </table><br />
+                    <table border="2">
+                        <tr>
+                            <th class="tab_head" colspan="2" height="30" align="center">DEGREE</th>
+                        </tr>
+                        <tr>
+                            <th class="sub_head" height="30" align="center">SEMESTER</th>
+                            <th class="sub_head" height="30" align="center">PERCENTAGE/CGPA</th>
+                        </tr>
+                        <tr>
+                            <td height="30" align="center">Semester 1</th>
+                            <td height="30"><input type="text" id="per_cgpa_sem1" class="percentage" required /></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="center">Semester 2</th>
+                            <td height="30"><input type="text" id="per_cgpa_sem2" class="percentage" required /></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="center">Semester 3</th>
+                            <td height="30"><input type="text" id="per_cgpa_sem3" class="percentage" required /></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="center">Semester 4</th>
+                            <td height="30"><input type="text" id="per_cgpa_sem4" class="percentage" required /></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="center">Semester 5</th>
+                            <td height="30"><input type="text" id="per_cgpa_sem5" class="percentage" required /></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="center">Semester 6</th>
+                            <td height="30"><input type="text" id="per_cgpa_sem6" class="percentage" required /></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="center">Semester 7</th>
+                            <td height="30"><input type="text" id="per_cgpa_sem7" class="percentage" required /></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="center">Semester 8</th>
+                            <td height="30"><input type="text" id="per_cgpa_sem8" class="percentage" required /></td>
+                        </tr>
+                    </table><br />
+                </fieldset><br/>
+                <fieldset class="field">
+                    <legend><b>SPECIALISATION</b></legend><br/>
+                    <table border="0">
+                        <tr>
+                            <td height="30" align="right">Engineering Branch :&nbsp;</td>
+                            <td height="30"><select id="specialization">
+                                                <option value="select" >Select</option>
+                                                <option value="cse" >CSE</option>
+                                                <option value="ise">ISE</option>
+                                                <option value="it">IT</option>
+                                                <option value="ece">ECE</option>
+                                                <option value="eee">EEE</option>
+                                                <option value="civil">CIVIL</option>
+                                                <option value="mech">MECHANICAL</option>  
+                                            </select>
+                            </td>
+                        </tr>
+                    </table><br/>
+                </fieldset><br/>
+                <fieldset class="field">
+                    <legend><b>YOP AND DOB</b></legend><br/>
+                    <table border="0">
+                        <tr>
+                            <td height="30" align="right">Year Of Passing :&nbsp;</td>
+                            <td height="30"><input type="date" id="YOP" required/></td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="right">Date Of Birth :&nbsp;</td>
+                            <td height="30"><input type="date" id="dob" required/></td>
+                        </tr>
+                    </table><br/>
+                </fieldset><br/>
+                <fieldset class="field">
+                    <legend><b>TECHNICAL SKILLS SECTION</b></legend><br/>
+                    <table border="0">
+                        <tr>
+                            <td height="30" align="right" valign="top">Course :&nbsp;</td>
+                            <td height="30"><input type="checkbox" class="example" value="c"/>C Programming<br/>
+                                <input type="checkbox" class="example" value="c++"/>C++<br/>
+                                <input type="checkbox" class="example" value="python"/>Python<br/>
+                                <input type="checkbox" class="example" value="java"/>Java<br/>
+                                <input type="checkbox" class="example" value="cn"/>Computer Networks<br/>
+                                <input type="checkbox" class="example" value="dbms"/>Database Management Systems<br/>
+                                <input type="checkbox" class="example" value="It"/>Internet Technologies<br/>
+                                <input type="checkbox" class="example" value="dd"/>Digital Design<br/>
+                            </td>
+                        </tr>
+                    </table><br/>
+                </fieldset><br/>
+                <center>
+                    <br/><input class="reg_btn" type="submit" value="REGISTER"/><br/><br/><br/>
+                    <div class="small">&copy;Presidency University, Rajankunte, Bangalore-560064</div>
+                </center>
+            </fieldset>
+        </form>
+    </body>
+</html>
